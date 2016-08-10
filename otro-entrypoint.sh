@@ -3,18 +3,15 @@
 set -e
 IFS=$'\n'
 
-urls=$PLUGINS
-for i in ${urls[@]}; do
-    comando="git clone"
-    IFS=$' '
-    for j in ${i[@]}; do
-        if [ -d $j ]; then #Si la carpeta existe, no se clonara el respositorio
-            comando=""       
-            break
-        else
-            comando+=" $j"
-        fi
-    done
-    $comando
-    IFS=$'\n'
+if [ -z ${PLUGINS+} ]; then
+  echo "PLUGINS variable is not set. Aborting execution..."
+  exit 1
+fi
+
+for plugin in $PLUGINS; do
+  URL=`echo $plugin | awk -F " " '{print $1}'`
+  FOLDER=`echo $plugin | awk -F " " '{print $2}'`
+  if ! [ -d $FOLDER ]; then
+    echo "git clone $URL $FOLDER"
+  fi
 done
