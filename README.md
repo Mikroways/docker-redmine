@@ -14,4 +14,4 @@ docker run -p 3000:3000 -d -e "PLUGINS=git://github.com/alexandermeindl/redmine_
 
 Para obtener los scripts pasados a través de esta variable se creó un script(plugins.sh) en el cual se recorre esta lista de plugins y se pasa a clonar el repositorio en el directorio adecuado.
 
-Se crearon dos scripts: start.sh y plugins.sh. start.sh es un Entrypoint en el cual se ejecuta primero el script para descargar los plugins(plugins.sh) y luego llama a docker-entrypoint.sh con los parametros adecuados. Este docker-entrpoint.sh es el Entrypoint que ejecuta la imagen de redmine passenger en el cual se termina de configurar el contenedor.
+Se crearon dos scripts: start.sh y plugins.sh. El script start.sh es un Entrypoint en el cual se ejecuta primero el script para descargar los plugins(plugins.sh) y luego llama a docker-entrypoint.sh con los parametros adecuados. Este docker-entrpoint.sh es el Entrypoint que ejecuta la imagen de redmine passenger en el cual se termina de configurar el contenedor.
