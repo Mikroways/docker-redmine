@@ -4,7 +4,7 @@ Contenedor de docker que extiende la imagen de redmine:3.3-passenger. Con este c
 #Uso
 
 Este contenedor levanta la aplicación en el puerto 3000. Para agregar plugins al contenedor se debe definir una variable de entorno llamada 'PLUGINS'.
-Esta variable PLUGINS puede ser una lista con los plugins que se quieren instalar. Esta lista de plugins se debe definir de la siguiente manera: el primer campo es el repositorio en donde se encuentra el plugin y el segundo campo es el directorio en donde se instalará el plugin.
+Esta variable PLUGINS debe ser una lista con los plugins que se quieren instalar. Esta lista de plugins se debe definir de la siguiente manera: el primer campo es el repositorio en donde se encuentra el plugin y el segundo campo es el directorio en donde se instalará el plugin.
     repositorio_git_plugin plugins/nombre_plugin
 
 ```
