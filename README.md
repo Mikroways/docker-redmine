@@ -15,3 +15,36 @@ docker run -p 3000:3000 -d -e "PLUGINS=git://github.com/alexandermeindl/redmine_
 Para obtener los scripts pasados a través de esta variable se creó un script(plugins.sh) en el cual se recorre esta lista de plugins y se pasa a clonar el repositorio en el directorio adecuado.
 
 Se crearon dos scripts: start.sh y plugins.sh. El script start.sh es un Entrypoint en el cual se ejecuta primero el script para descargar los plugins(plugins.sh) y luego llama a docker-entrypoint.sh con los parametros adecuados. Este docker-entrpoint.sh es el Entrypoint que ejecuta la imagen de redmine passenger en el cual se termina de configurar el contenedor.
+
+
+#Configuración de Email
+
+Para la configuración del envío de emails se utiliza un template en el cual se definen una serie de variables de entorno, las cuales pueden ser definidas para especificar la configuración que se desee.
+
+Lista de variables: 
+        - SECRET_TOKEN
+        - DELIVERY_METHOD
+        - ADDRESS
+        - PORT
+        - AUTHENTICATION
+        - DOMAIN
+        - USER_NAME
+        - PASSWORD
+        - STARTTLS_AUTO
+
+Ejemplo con docker compose
+...
+redmine:
+    container_name: redmine
+    image: Mikroways/redmine
+    environment:
+        SECRET_TOKEN: you-secret-token 
+        DELIVERY_METHOD: async_smtp_example
+        ADDRESS: smtp.googlemail.com
+        PORT: port
+        AUTHENTICATION: :login
+        DOMAIN: your-domain.com
+        USER_NAME: name@your-domain.com
+        PASSWORD: your-password
+        STARTTLS_AUTO: 'true'
+...
