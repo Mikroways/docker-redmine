@@ -33,7 +33,7 @@ Lista de variables:
         - STARTTLS_AUTO
 
 Ejemplo con docker compose
-...
+```
 redmine:
     container_name: redmine
     image: Mikroways/redmine
@@ -47,4 +47,5 @@ redmine:
         USER_NAME: name@your-domain.com
         PASSWORD: your-password
         STARTTLS_AUTO: 'true'
-...
+        
+    ```
