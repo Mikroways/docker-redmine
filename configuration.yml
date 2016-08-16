@@ -1,0 +1,14 @@
+---
+production:
+  secret_token: $SECRET_TOKEN
+  email_delivery:
+    delivery_method: $DELIVERY_METHOD
+    async_smtp_settings:
+      address: $ADDRESS
+      port: $PORT
+      authentication: $AUTHENTICATION
+      domain: $DOMAIN
+      user_name: $USER_NAME
+      password: $PASSWORD
+      enable_starttls_auto: $STARTTLS_AUTO
+
