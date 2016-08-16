@@ -48,4 +48,4 @@ redmine:
         PASSWORD: your-password
         STARTTLS_AUTO: 'true'
         
-    ```
+```
